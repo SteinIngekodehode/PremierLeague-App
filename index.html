@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="index.js" defer></script>
-    <link rel="stylesheet" a href="styles.css" />
-    <title>Premier League App</title>
-  </head>
-  <body>
-    <header>
-      <h1>Premier League</h1>
-    </header>
-    <h2 class="heading">Results</h2>
-    <div class="match-info"></div>
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
+  <title>Premier League App</title>
+</head>
+<body>
+  <nav class="nav-container">
+    <img src="images/premier-league-1.png">
+  
+<h2 class="heading">Your Team's Fixtures!</h2>
+  <div class="team-input">
+    <input type="text" id="team-name" placeholder="Enter your team" />
+    <button id="fetch-fixtures">Fetch Fixtures</button>
+  </div>
+  </nav>
 
-    <h2 class="heading">You team's Fixtures!</h2>
-    <form id="fixtures-team">
-      <input type="text" id="team-input" placeholder="Enter team name" />
-      <button type="submit">Get fixtures</button>
-    </form>
+  <main class="main">
+ <h1 class="fixt">Fixtures</h1>
 
-    <h2 class="heading">
-      Table, 9 element,
-      plassering+lag+spilt+vunne+uavg+tapt+målscort+måsluppeinn+
-      målforskjell+poeng
-    </h2>
-    <div class="leaguetable">
-      <table class="football-table">
+  <div class="match-info">
+    <p class="home-goals"></p>
+
+    <p class="away-goals"></p>
+  </div>
+
+<h2 class="heading">Premier League Table</h2>
+  <div class="leaguetable">
+    <table class="football-table">
+      <thead>
         <tr>
-          <td>Plassering</td>
-          <th>Lag</th>
-          <td>Mål</td>
-          <td>Poeng</td>
+          <th>Place</th>
+          <th>Team</th>
+          <th>Played</th>
+          <th>Win</th>
+          <th>Draw</th>
+          <th>Lose</th>
+          <th>Goals</th>
+          <th>Goal-diff</th>
+          <th>Points</th>
         </tr>
-      </table>
-    </div>
-  </body>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+</main>
+<div class="footer">
+</div>
+</body>
 </html>

@@ -1,95 +1,124 @@
-
-
 body {
-padding:0px 150px 150px 150px;
-display: flex;
-flex-direction: column;
-align-items: center;
-
-}
-
-h1 {
-font-size: 52px;
-font-weight: 800;
-color: #37003c;
-}
-.heading {
- color:#37003c; 
- text-align: center;
- font-size: 38px; 
-}
-
-.match-info {
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-text-align: center;
-align-self: center;
-align-items: center;
-font-size: 40px;
-font-weight: 800;
-width:1000px;
-height: 250px;
-background-color: aliceblue;
-border-radius: 10px;
-margin-bottom: 60px;
-
-}
-/*.kamp {
-    display: flex;
-    flex-direction: row;
-    font-size: 34px;
-    font-weight: 600;
-    letter-spacing: 0,5;
-    width: 100%;
-    justify-content: center;
-}*/
-.hjemme-scoringer {
-    /*font-size: 16px;*/
-    margin-left: 12px;
-    
-}
-.seperator {
-    padding-left: 6px;
-    padding-right: 6px;
-    
-}
-.borte-scoringer {
-    margin-right: 6px;
-}
-
-.fixtures-team {
     display: flex;
     flex-direction: column;
-    align-self: center;
-    text-align: center;
-    padding-left: 20px;
-    width: 60%;
-    height: 500px;
-    border-radius: 10px;
-    background-color: aliceblue;
-    margin-bottom: 60px;
-    font-size: 34px;
-    font-weight: 600;
-    justify-content: center;
-}
+    align-items: center;
+    margin:0;
+    }
+    
+    .nav-container {
+    display: flex;
+    justify-content: space-around;
+    background-color:#64a3ff;
+    background-size: cover;
+    align-items: center;
+    width:100%;
+    height: 80px;
+   }
 
-.leaguetable {
-    width: 100%;
-    height: 1000px;
+    h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #37003c;
+    }
+
+    .heading {
+     color:#37003c; 
+     text-align: center;
+     font-size: 20px; 
+    }
+    
+    .main {
+    padding:0px 150px 150px 150px;  
+    }
+
+    .fixt {
+        display: flex;
+        justify-content: center;
+        color:#37003c;
+        font-weight: 800;
+        margin: 80px 0px 80px 0px;
+    }
+    .match-info {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-around;*/
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 800;
+    color:#37003c;
+    width:1000px;
+    background-color: aliceblue;
     border-radius: 10px;
-    background-color: whitesmoke;
+    margin-bottom: 60px;
+    }
+
+    .fixture-card {
+     width: 100%;   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 2px solid #37003c;
+    border-radius: 6px;
+    padding-bottom: 5px;
+    /*margin-bottom: 4px;*/
+    
+    }
+    .fixture-card h3 {
+     font-size: 18px;
+     font-weight: 800;
+    }
+
+    .fixture-card p {
+    font-size: 18px;
+    font-weight: 800;
+    }
+    
+    .home-goals {
+        /*font-size: 16px;*/
+        margin-left: 12px;
+        
+    }
+    .seperator {
+        padding-left: 6px;
+        padding-right: 6px;
+        
+    }
+    .away-goals {
+    margin-right: 6px;
+    }
+    
+    .leaguetable {
+    display:flex;
+    justify-content: center;
+    width: auto;
+    align-self: center;
+    border-radius: 10px;
     box-sizing:content-box;
-    display:block;
-    float: none;
     line-height:14px;
     position:static;
     z-index:auto;
+   }
+    
+    .football-table tr {
+    background-color: transparent;
+    }
+    
+    .football-table td {
+    padding: 4px;
     border: 1px solid darkblue;
-}
+    }
 
-.football-table {
+    .football-table th {
+    padding: 4px;
+    border: 1px solid darkblue;
+    background-color: #f2f2f2; 
+    }
+
+    .footer {
     width: 100%;
-    height: 15px;
-    border: 1px solid black;
-}
+    height: 80px;
+    margin: 0;
+    background-color: #37003c;
+    }
