@@ -28,51 +28,70 @@ body {
     }
     
     .main {
-    padding:0px 150px 150px 150px;  
+    padding:0px 150px 150px 150px;
+    background-color: aliceblue; 
     }
 
     .fixt {
-        display: flex;
-        justify-content: center;
-        color:#37003c;
-        font-weight: 800;
-        margin: 80px 0px 80px 0px;
+    display: flex;
+    justify-content: center;
+    color:#37003c;
+    font-weight: 800;
+    margin: 80px 0px 80px 0px;
     }
     .match-info {
     display: flex;
     flex-direction: column;
-    /*justify-content: space-around;*/
-    text-align: center;
     align-self: center;
     align-items: center;
     font-size: 11px;
     font-weight: 800;
     color:#37003c;
-    width:1000px;
-    background-color: aliceblue;
+    width:800px;
     border-radius: 10px;
     margin-bottom: 60px;
     }
 
     .fixture-card {
-     width: 100%;   
+    width: 100%;
+    height: 80px;   
     display: flex;
+    align-items: center;
+    line-height: 3em;
     flex-direction: row;
-    justify-content: space-around;
-    border: 2px solid #37003c;
     border-radius: 6px;
-    padding-bottom: 5px;
-    /*margin-bottom: 4px;*/
-    
+    background-color: white;
+    margin-bottom: 2px;
     }
+
     .fixture-card h3 {
+     display: flex;
+     width: 150px;
+     order: 3;
+     flex-direction: column;
      font-size: 18px;
      font-weight: 800;
+     margin-left: 20px;
+    
     }
 
     .fixture-card p {
+    display: flex;
+    justify-content: start;
+    padding: 0px 20px 0 25px;
+    order: 1;
     font-size: 18px;
     font-weight: 800;
+    }
+
+    span {
+    display: flex;
+    justify-content: end;
+    order: 4;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 800;
+    margin-left: 50%;
     }
     
     .home-goals {
@@ -80,11 +99,7 @@ body {
         margin-left: 12px;
         
     }
-    .seperator {
-        padding-left: 6px;
-        padding-right: 6px;
-        
-    }
+    
     .away-goals {
     margin-right: 6px;
     }
@@ -93,27 +108,33 @@ body {
     display:flex;
     justify-content: center;
     width: auto;
-    align-self: center;
+    border: 1px solid black;
     border-radius: 10px;
+    background-color: white;
     box-sizing:content-box;
     line-height:14px;
     position:static;
-    z-index:auto;
+    padding: 2px;
    }
+
+   .football-table {
+    padding: 4px;
+    }
     
     .football-table tr {
     background-color: transparent;
+    border: 1px aliceblue;
     }
     
     .football-table td {
     padding: 4px;
-    border: 1px solid darkblue;
+    margin-bottom: 1px;
     }
 
     .football-table th {
     padding: 4px;
-    border: 1px solid darkblue;
-    background-color: #f2f2f2; 
+    margin-bottom: 1px;
+    background-color: #f2f2f2;
     }
 
     .footer {

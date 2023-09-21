@@ -56,6 +56,11 @@ allFixtures = data.response; // Store fixtures globally
     console.error(error);
   }
 }
+// Function to display logos for each team
+// Param: fixture+teams+home and away + logo
+/*function displayTeamLogo(selectedLogo) {
+  const
+}*/
 // Function to display fixtures for the selected team
 function displayFixturesForTeam(selectedTeamName) {
   const matchInfo = document.querySelector('.match-info');
@@ -83,44 +88,68 @@ function displayFixturesForTeam(selectedTeamName) {
   }
 }
 // Function to create a fixture card
+
 function createFixtureCard(fixture) {
   const card = document.createElement('div');
   card.classList.add('fixture-card');
-  // Defining
+// Defining
   const homeTeam = fixture.teams.home.name;
   const awayTeam = fixture.teams.away.name;
-  const date = fixture.fixture.date; 
-  const venue = fixture.fixture.venue.name; 
+  const date = fixture.fixture.date.slice(0,10);
+  
+  // Access the logos direct from the fixture data
+  const homeLogo = fixture.teams.home.logo;
+  const awayLogo = fixture.teams.away.logo;
 
-  const title = document.createElement('h3');
-  title.textContent = `${homeTeam} vs ${awayTeam}`;
+// container to make it possible to place them 
+  const logosContainer = document.createElement('div');
+  logosContainer.style.display = 'flex';
+  logosContainer.style.flexDirection = 'column';
+  logosContainer.style.justifyContent = 'space-around';
+  logosContainer.style.height = '100%';
+  logosContainer.style.order = '2';
+
+// Create image elements for the logos
+  const homeLogoImg = document.createElement('img');
+  homeLogoImg.src = homeLogo;
+  homeLogoImg.style.width = '20px';
+  homeLogoImg.style.height = 'auto';
+
+  const awayLogoImg = document.createElement('img');
+  awayLogoImg.src = awayLogo;
+  awayLogoImg.style.width = '20px';
+  awayLogoImg.style.height = 'auto';
+
+  
 
 // check if there is any goal information
   const goals = document.createElement('p');
   
-  if (fixture.fixture.status.short === 'FT' && fixture.goals) {
+if (fixture.fixture.status.short === 'FT' && fixture.goals) {
     // Displaying the score if fixture is finished and goal info is availble
-    const homeGoals = fixture.goals.home;
-    const awayGoals = fixture.goals.away;
-    goals.textContent = `Score: ${homeGoals} - ${awayGoals}`;
-  } else {
-    goals.textContent = '';
-  }
+  const homeGoals = fixture.goals.home;
+  const awayGoals = fixture.goals.away;
+  goals.innerText = ` ${homeGoals} \n ${awayGoals}`;
+} else {
+  goals.textContent = '-';
+}
   
-  const datePara = document.createElement('p');
+  const title = document.createElement('h3');
+  title.innerText = `${homeTeam} \n ${awayTeam}`;
+  
+// check if there is any goal information
+  const datePara = document.createElement('span');
   datePara.textContent = `Date: ${date}`;
-
-  const venuePara = document.createElement('p');
-  venuePara.textContent = `Venue: ${venue}`;
-
+  
+  card.appendChild(logosContainer);
+  logosContainer.appendChild(homeLogoImg);
+  logosContainer.appendChild(awayLogoImg);
   card.appendChild(title);
   card.appendChild(goals);
   card.appendChild(datePara);
-  card.appendChild(venuePara);
 
   return card;
 }
-
 // Global variable to store the result
 let leagueTableResult = ''
 
@@ -202,12 +231,6 @@ function displayLeagueTable(standingsData) {
         const loseCell = document.createElement('td');
         loseCell.textContent = teamStanding.all.lose; 
 
-        //const goalsForCell = document.createElement('td');
-        //goalsForCell.textContent = teamStanding.goalsFor;
-
-        //const goalsAgainstCell = document.createElement('td');
-        //goalsAgainstCell.textContent = teamStanding.goalsAgainst;
-
         const goalDifferenceCell = document.createElement('td');
         goalDifferenceCell.textContent = teamStanding.goalsDiff; 
         
@@ -226,8 +249,6 @@ function displayLeagueTable(standingsData) {
         row.appendChild(loseCell)
         row.appendChild(goalsCell)
         row.appendChild(goalDifferenceCell);
-        //row.appendChild(goalsForCell);
-        //row.appendChild(goalsAgainstCell); 
         row.appendChild(pointsCell);
 
         // Append the row to the table body
