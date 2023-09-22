@@ -56,11 +56,6 @@ allFixtures = data.response; // Store fixtures globally
     console.error(error);
   }
 }
-// Function to display logos for each team
-// Param: fixture+teams+home and away + logo
-/*function displayTeamLogo(selectedLogo) {
-  const
-}*/
 // Function to display fixtures for the selected team
 function displayFixturesForTeam(selectedTeamName) {
   const matchInfo = document.querySelector('.match-info');
@@ -171,7 +166,7 @@ async function fetchAndDisplayLeagueTable() {
     const result = await response.json();
     console.log(result);
 
-    // Check the actual structure of your API response and adjust accordingly
+    // Check the actual structure of the API response and adjust accordingly
     const standingsData = result.response[0].league.standings[0];
 
     if (Array.isArray(standingsData)) {
@@ -201,58 +196,66 @@ function displayLeagueTable(standingsData) {
 
       // Loop through the standingsData array and create table rows
       standingsData.forEach((teamStanding) => {
-        const row = document.createElement('tr');
+      const row = document.createElement('tr');
 
-        // Create and populate the position cell
-        const positionCell = document.createElement('td');
-        positionCell.textContent = teamStanding.rank;
-
-
+      // Create and populate the position cell
+      const positionCell = document.createElement('td');
+      positionCell.textContent = teamStanding.rank;
+      
+      const teamLogoCell = document.createElement('td');
+      const teamLogoImg = document.createElement('img');
+      teamLogoImg.src = teamStanding.team.logo;
+      teamLogoImg.alt = `${teamStanding.team.name}Logo`;
+      teamLogoImg.style.width = '20px';
+      teamLogoImg.style.height = 'auto';
+      teamLogoImg.style.alignSelf = 'center';
+      teamLogoCell.appendChild(teamLogoImg);
         // Create the team cell
-        const teamCell = document.createElement('td');
+      const teamCell = document.createElement('td');
 
-        // Check if team name is available and populate the team cell
-        if (teamStanding.team && teamStanding.team.name) {
+      // Check if team name is available and populate the team cell
+      if (teamStanding.team && teamStanding.team.name) {
           teamCell.textContent = teamStanding.team.name;
-        } else {
+      } else {
           console.error('Invalid data format: Team info missing');
-        }
+      }
 
-        // Create and populate played games cell
-        const playedCell = document.createElement('td');
-        playedCell.textContent = teamStanding.all.played; 
+      //Create and populate played games cell
+      const playedCell = document.createElement('td');
+      playedCell.textContent = teamStanding.all.played; 
 
-        const winCell = document.createElement('td');
-        winCell.textContent = teamStanding.all.win; 
+      const winCell = document.createElement('td');
+      winCell.textContent = teamStanding.all.win; 
 
-        const drawCell = document.createElement('td');
-        drawCell.textContent = teamStanding.all.draw; 
+      const drawCell = document.createElement('td');
+      drawCell.textContent = teamStanding.all.draw; 
 
-        const loseCell = document.createElement('td');
-        loseCell.textContent = teamStanding.all.lose; 
+      const loseCell = document.createElement('td');
+      loseCell.textContent = teamStanding.all.lose; 
 
-        const goalDifferenceCell = document.createElement('td');
-        goalDifferenceCell.textContent = teamStanding.goalsDiff; 
+      const goalDifferenceCell = document.createElement('td');
+      goalDifferenceCell.textContent = teamStanding.goalsDiff; 
         
-        const goalsCell = document.createElement('td');
-        goalsCell.textContent = teamStanding.all.goals.for + " - " + teamStanding.all.goals.against;
+      const goalsCell = document.createElement('td');
+      goalsCell.textContent = teamStanding.all.goals.for + " - " + teamStanding.all.goals.against;
 
-        const pointsCell = document.createElement('td');
-        pointsCell.textContent = teamStanding.points;
+      const pointsCell = document.createElement('td');
+      pointsCell.textContent = teamStanding.points;
 
-        // Append all cells to the table row
-        row.appendChild(positionCell);
-        row.appendChild(teamCell);
-        row.appendChild(playedCell); 
-        row.appendChild(winCell); 
-        row.appendChild(drawCell);
-        row.appendChild(loseCell)
-        row.appendChild(goalsCell)
-        row.appendChild(goalDifferenceCell);
-        row.appendChild(pointsCell);
+     // Append all cells to the table row
+      row.appendChild(positionCell);
+      row.appendChild(teamLogoCell);
+      row.appendChild(teamCell);
+      row.appendChild(playedCell); 
+      row.appendChild(winCell); 
+      row.appendChild(drawCell);
+      row.appendChild(loseCell)
+      row.appendChild(goalsCell)
+      row.appendChild(goalDifferenceCell);
+      row.appendChild(pointsCell);
 
-        // Append the row to the table body
-        tableBody.appendChild(row);
+      // Append the row to the table body
+      tableBody.appendChild(row);
       });
     } else {
       console.error("Invalid data format: standingsData is undefined or not an array");
